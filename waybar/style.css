@@ -90,7 +90,7 @@ window#waybar.dock .modules-right {
 #custom-fleur { background-image: url("icons/fleur.svg"); min-height: 28px; }
 #custom-zen   { background-image: url("icons/zen.svg"); }
 #custom-kitty { background-image: url("icons/kitty.svg"); }
-#custom-krita { background-image: url("icons/krita.svg"); }
+#custom-krita { background-image: url("icons/krita.png"); }
 #custom-power { background-image: url("icons/knight.svg"); background-size: 28px 28px; margin-top: 8px; }
 #custom-power:hover { background-size: 31px 31px; }
 

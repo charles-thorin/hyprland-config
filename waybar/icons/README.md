@@ -13,12 +13,12 @@ sharp at any size. You can use PNG too, if you change the extension in
 | `fleur.svg`       | Top of the dock, click to unfold the bar    |
 | `zen.svg`         | Zen Browser launcher                        |
 | `kitty.svg`       | Kitty launcher                              |
-| `krita.svg`       | Krita launcher                              |
+| `krita.png`       | Krita launcher                              |
 | `knight.svg`      | Power menu                                  |
 
-Already here: `knight.svg` (your Knight head, with a thicker stroke) and the
-four `mask*.svg` health masks (adapted from your Architect mask). Still needed:
-`fleur.svg`, `zen.svg`, `kitty.svg`, `krita.svg`.
+Already here: `knight.svg` (your Knight head, with a thicker stroke), the
+four `mask*.svg` health masks (adapted from your Architect mask), and `zen.svg`,
+`kitty.svg`, `krita.png`. Still needed: `fleur.svg`.
 
 Sizes are set in `style.css`: masks are 18px tall (22px when active), and
 dock icons are 24px.

@@ -33,8 +33,8 @@ mkdir -p "$HOME/Pictures/wallpapers/hollow-knight"
 
 # Warn about missing icons
 missing=0
-for i in mask mask-active mask-empty mask-urgent fleur zen kitty krita knight; do
-    [[ -f "$REPO/waybar/icons/$i.svg" ]] || { echo "  ! missing waybar/icons/$i.svg"; missing=1; }
+for i in mask.svg mask-active.svg mask-empty.svg mask-urgent.svg fleur.svg zen.svg kitty.svg krita.png knight.svg; do
+    [[ -f "$REPO/waybar/icons/$i" ]] || { echo "  ! missing waybar/icons/$i"; missing=1; }
 done
 for i in lock logout suspend reboot shutdown; do
     [[ -f "$REPO/wlogout/icons/$i.svg" ]] || { echo "  ! missing wlogout/icons/$i.svg"; missing=1; }
