@@ -1,9 +1,11 @@
-// One bar along the bottom of the screen:
+// A floating bar, centered at the bottom of the screen:
 //   [Knight: power menu]  ·  [mask workspaces]  ·····  date  ·····  [open apps]
 {
   "layer": "top",
   "position": "bottom",
+  "width": 960,                     // setting a width centers the bar
   "height": 42,
+  "margin-bottom": 10,              // gap between the bar and the screen edge
   "spacing": 0,
   "reload_style_on_change": true,   // edits to style.css apply instantly
 

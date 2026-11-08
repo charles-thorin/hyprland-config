@@ -15,10 +15,15 @@
     box-shadow: none;
 }
 
+/* The window itself is invisible; the inner box is the floating pill */
 window#waybar {
-    background-color: @void;
-    border-top: 1px solid @faint;
+    background-color: transparent;
     color: @pale;
+}
+window#waybar > box {
+    background-color: @void;
+    border: 1px solid @faint;
+    border-radius: 21px;
 }
 
 tooltip {
@@ -31,7 +36,7 @@ tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px
 /* ── Left: the Knight opens the power menu ──────── */
 #custom-power {
     min-width: 30px;
-    margin: 0 8px 0 14px;
+    margin: 0 8px 0 12px;
     padding: 0 4px;
     color: transparent;
     background-image: url("icons/knight.svg");
@@ -85,7 +90,7 @@ tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px
 }
 
 /* ── Right: open apps ───────────────────────────── */
-#taskbar { margin-right: 10px; }
+#taskbar { margin-right: 12px; }
 #taskbar button {
     padding: 0 6px;
     margin: 4px 2px;

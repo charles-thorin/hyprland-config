@@ -29,6 +29,13 @@ hl.window_rule({
     center = true,
 })
 
+-- Don't blur the transparent corners around the floating bar
+hl.layer_rule({
+    name         = "bar-corners",
+    match        = { namespace = "^(waybar)$" },
+    ignore_alpha = 0.1,
+})
+
 -- Blur behind the bar, notifications, launcher and power menu
 hl.layer_rule({
     name  = "blur-ui",
