@@ -25,8 +25,8 @@ button:focus, button:hover {
 }
 #shutdown:hover, #shutdown:focus { border-color: rgba(240, 138, 36, 0.8); }
 
-#lock     { background-image: -gtk-scaled(url("icons/lock.svg"), url("icons/lock@2x.svg")); }
-#logout   { background-image: -gtk-scaled(url("icons/logout.svg"), url("icons/logout@2x.svg")); }
-#suspend  { background-image: -gtk-scaled(url("icons/suspend.svg"), url("icons/suspend@2x.svg")); }
-#reboot   { background-image: -gtk-scaled(url("icons/reboot.svg"), url("icons/reboot@2x.svg")); }
-#shutdown { background-image: -gtk-scaled(url("icons/shutdown.svg"), url("icons/shutdown@2x.svg")); }
+#lock     { background-image: url("icons/lock.svg"); }
+#logout   { background-image: url("icons/logout.svg"); }
+#suspend  { background-image: url("icons/suspend.svg"); }
+#reboot   { background-image: url("icons/reboot.svg"); }
+#shutdown { background-image: url("icons/shutdown.svg"); }
