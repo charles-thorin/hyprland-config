@@ -1,0 +1,10 @@
+-- ── Your programs ───────────────────────────────
+-- Change these and every keybind follows.
+return {
+    terminal = "kitty",
+    browser  = "zen-browser",        -- Flatpak: "flatpak run app.zen_browser.zen"
+    paint    = "krita",
+    launcher = "fuzzel",
+    files    = "kitty -e yazi",      -- or "thunar", "nautilus", "dolphin"…
+    scripts  = "~/.config/hypr/scripts",
+}

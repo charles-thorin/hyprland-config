@@ -43,4 +43,4 @@ done
 
 echo
 echo "Done. Put wallpapers in ~/Pictures/wallpapers/hollow-knight,"
-echo "then log into Hyprland (or run: hyprctl reload && pkill waybar; waybar &)."
+echo "then log into Hyprland 0.57+ (or run: hyprctl reload && pkill waybar; waybar &)."

@@ -1,6 +1,6 @@
 # Hallownest — a calm Hyprland setup
 
-A Hyprland setup built for focus, themed after Hollow Knight: pale spectral
+A Hyprland **0.57+** setup (Lua config) built for focus, themed after Hollow Knight: pale spectral
 white on near-black, masks for workspaces, and infection orange only when
 something needs you.
 
@@ -24,7 +24,7 @@ something needs you.
 
 | Folder     | What it is                                                    |
 |------------|---------------------------------------------------------------|
-| `hypr/`    | Hyprland, split into small commented files in `conf/`, plus lock screen (hyprlock) and idle (hypridle) |
+| `hypr/`    | Hyprland: `hyprland.lua`, split into small commented files in `conf/`, plus lock screen (hyprlock) and idle (hypridle) |
 | `waybar/`  | The workspace tab and the dock                                |
 | `wlogout/` | Power menu                                                    |
 | `mako/`    | Notifications                                                 |
@@ -67,7 +67,8 @@ one is picked at login, and `Super + W` switches to another.
 
 ## Keybinds
 
-Press **`Super + /`** to see them all and search them.
+Press **`Super + H`** (help) to see them all and search them.
+The keyboard is set to **AZERTY** (`fr`).
 
 | Keys                     | Action                                   |
 |--------------------------|------------------------------------------|
@@ -77,14 +78,15 @@ Press **`Super + /`** to see them all and search them.
 | `Super + E`              | Files                                    |
 | `Super + Space`          | Launcher                                 |
 | `Super + Z`              | **Focus mode** (press again to exit)     |
+| `Super + H`              | Show all keybinds                        |
 | `Super + Q`              | Close window                             |
 | `Super + F` / `Shift+F`  | Fullscreen / maximize                    |
 | `Super + V`              | Float / tile                             |
 | `Super + arrows`         | Move focus                               |
 | `Super + Shift + arrows` | Move window                              |
 | `Super + Ctrl + arrows`  | Resize                                   |
-| `Super + 1–9`            | Go to workspace (QWERTY and AZERTY)      |
-| `Super + Shift + 1–9`    | Send window to workspace                 |
+| `Super + & é " ' ( - è _ ç à` | Go to workspace 1–10 (number row)  |
+| `Super + Shift + number row` | Send window to workspace 1–10        |
 | `Super + Tab`            | Previous workspace                       |
 | `Super + S`              | Scratchpad (`Shift` sends a window there)|
 | `Super + W`              | Next wallpaper                           |
@@ -104,10 +106,18 @@ turns off after 15.
 
 ## Customizing
 
-- **Different apps:** edit `hypr/conf/programs.conf`. The dock commands are
+- **Different apps:** edit `hypr/conf/programs.lua`. The dock commands are
   at the bottom of `waybar/config.jsonc`.
-- **Keyboard layout:** set `kb_layout` in `hypr/conf/input.conf` (`fr` for AZERTY).
-- **Colors:** the palette is listed at the top of `hypr/conf/looks.conf` and
+- **Keyboard:** `kb_layout` / `kb_variant` in `hypr/conf/input.lua`.
+- **Colors:** the palette is listed at the top of `hypr/conf/looks.lua` and
   `waybar/style.css`.
-- **Window rules / blur behind the bar:** see `hypr/conf/rules.conf`. Uncomment
-  the block for your Hyprland version (`hyprctl version`).
+- **Window rules / blur behind the bar:** `hypr/conf/rules.lua`.
+
+## Hyprland 0.57 notes
+
+- Hyprland 0.57 reads only `hyprland.lua`; the old `hyprland.conf` format is gone.
+- `hyprctl keyword` no longer exists. Use `hyprctl eval 'hl.config({ ... })'` to
+  change settings live. `hyprctl dispatch` now takes Lua, for example
+  `hyprctl dispatch 'hl.dsp.exit()'`.
+- If something doesn't load, run `hyprctl configerrors` to see what Hyprland
+  rejected.

@@ -6,7 +6,7 @@ STATE="${XDG_RUNTIME_DIR:-/tmp}/hypr-focus-mode"
 
 if [[ -f "$STATE" ]]; then
     rm -f "$STATE"
-    hyprctl reload >/dev/null                 # restores gaps/dim from looks.conf
+    hyprctl reload >/dev/null                 # restores gaps/dim from conf/looks.lua
     makoctl mode -r do-not-disturb >/dev/null
     pgrep -x waybar >/dev/null || setsid -f waybar >/dev/null 2>&1
     notify-send -t 2500 "Awake" "Hallownest stirs once more."
@@ -16,9 +16,8 @@ else
     sleep 1.5
     makoctl mode -a do-not-disturb >/dev/null
     pkill -x waybar
-    hyprctl --batch "\
-        keyword general:gaps_in 0 ; \
-        keyword general:gaps_out 0 ; \
-        keyword decoration:rounding 0 ; \
-        keyword decoration:dim_strength 0.35" >/dev/null
+    hyprctl eval 'hl.config({
+        general    = { gaps_in = 0, gaps_out = 0 },
+        decoration = { rounding = 0, dim_strength = 0.35 },
+    })' >/dev/null
 fi
