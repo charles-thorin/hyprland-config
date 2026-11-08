@@ -1,20 +1,33 @@
 -- ── Keybinds ────────────────────────────────────
--- Every bind has a description, so  Super + H  (help) can list them all.
+-- Super + H (help) lists every bind below.
 local mod = "SUPER"
+
+-- Every bind() is also written to a list that  Super + H  shows.
+local cheatsheet = {}
 
 -- bind("SUPER + Q", "What it does", dispatcher, { repeating = true, ... })
 local function bind(keys, description, dispatcher, opts)
-    opts = opts or {}
-    opts.description = description
-    hl.bind(keys, dispatcher, opts)
+    hl.bind(keys, dispatcher, opts or {})
+    cheatsheet[#cheatsheet + 1] = keys .. "\t" .. description
+end
+
+-- Writes the list to $XDG_RUNTIME_DIR/hypr-keybinds.tsv (read by scripts/keybinds.sh)
+local function save_cheatsheet()
+    local dir = os.getenv("XDG_RUNTIME_DIR") or "/tmp"
+    local ok, file = pcall(io.open, dir .. "/hypr-keybinds.tsv", "w")
+    if ok and file then
+        file:write(table.concat(cheatsheet, "\n"), "\n")
+        file:close()
+    end
 end
 
 return function(p)
     local exec = hl.dsp.exec_cmd
 
-    -- Apps (same order as the dock)
+    -- Apps
+    bind(mod .. " + Q",      "Open terminal",      exec(p.terminal))
     bind(mod .. " + Return", "Open terminal",      exec(p.terminal))
-    bind(mod .. " + B",      "Open browser",       exec(p.browser))
+    bind(mod .. " + F",      "Open Zen (browser)", exec(p.browser))
     bind(mod .. " + P",      "Open Krita (paint)", exec(p.paint))
     bind(mod .. " + E",      "Open file manager",  exec(p.files))
     bind(mod .. " + Space",  "App launcher",       exec(p.launcher))
@@ -28,9 +41,9 @@ return function(p)
     bind(mod .. " + ALT + L", "Lock screen",       exec("loginctl lock-session"))
 
     -- Windows
-    bind(mod .. " + Q",         "Close window",         hl.dsp.window.close())
-    bind(mod .. " + F",         "Fullscreen",           hl.dsp.window.fullscreen({ mode = "fullscreen" }))
-    bind(mod .. " + SHIFT + F", "Maximize (keep bar)",  hl.dsp.window.fullscreen({ mode = "maximized" }))
+    bind(mod .. " + C",               "Close window",              hl.dsp.window.close())
+    bind(mod .. " + Page_Up",         "Maximize / restore window", hl.dsp.window.fullscreen({ mode = "maximized" }))
+    bind(mod .. " + SHIFT + Page_Up", "Fullscreen / restore",      hl.dsp.window.fullscreen({ mode = "fullscreen" }))
     bind(mod .. " + V",         "Float / tile window",  hl.dsp.window.float({ action = "toggle" }))
     bind(mod .. " + J",         "Swap split direction", hl.dsp.layout("togglesplit"))
 
@@ -76,4 +89,6 @@ return function(p)
     bind("XF86AudioPrev",         "Previous track",  exec("playerctl previous"),                             { locked = true })
     bind("XF86MonBrightnessUp",   "Brightness up",   exec("brightnessctl s 5%+"),                            { locked = true, repeating = true })
     bind("XF86MonBrightnessDown", "Brightness down", exec("brightnessctl s 5%-"),                            { locked = true, repeating = true })
+
+    save_cheatsheet()
 end

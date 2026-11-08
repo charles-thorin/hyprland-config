@@ -75,15 +75,16 @@ The keyboard is set to **AZERTY** (`fr`).
 
 | Keys                     | Action                                   |
 |--------------------------|------------------------------------------|
-| `Super + Return`         | Terminal                                 |
-| `Super + B`              | Browser                                  |
+| `Super + Q` / `Return`   | Terminal                                 |
+| `Super + F`              | Zen (browser)                            |
 | `Super + P`              | Krita                                    |
 | `Super + E`              | Files                                    |
 | `Super + Space`          | Launcher                                 |
 | `Super + Z`              | **Focus mode** (press again to exit)     |
 | `Super + H`              | Show all keybinds                        |
-| `Super + Q`              | Close window                             |
-| `Super + F` / `Shift+F`  | Fullscreen / maximize                    |
+| `Super + C`              | Close window                             |
+| `Super + Page Up`        | Maximize / restore window                |
+| `Super + Shift + Page Up`| Fullscreen / restore                     |
 | `Super + V`              | Float / tile                             |
 | `Super + arrows`         | Move focus                               |
 | `Super + Shift + arrows` | Move window                              |

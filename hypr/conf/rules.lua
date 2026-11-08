@@ -1,4 +1,12 @@
 -- ── Window & layer rules ────────────────────────
+-- Apps (Zen, Firefox, Electron apps…) can ask to open maximized: ignore that,
+-- so new windows tile normally. Super + Page Up still maximizes on demand.
+hl.window_rule({
+    name           = "no-auto-maximize",
+    match          = { class = ".*" },
+    suppress_event = "maximize",
+})
+
 hl.window_rule({
     name  = "float-volume-mixer",
     match = { class = "^(org.pulseaudio.pavucontrol)$" },
