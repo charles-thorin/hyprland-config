@@ -15,14 +15,13 @@ button {
     margin: 18px;
     background-repeat: no-repeat;
     background-position: center 42%;
-    background-size: 28%;
+    background-size: 80px 80px;   /* = the SVGs' own size, so they stay sharp */
     transition: all 250ms ease;
 }
 button:focus, button:hover {
     color: #ffffff;
     border-color: rgba(232, 236, 242, 0.7);
     background-color: rgba(191, 224, 255, 0.06);
-    background-size: 32%;
 }
 #shutdown:hover, #shutdown:focus { border-color: rgba(240, 138, 36, 0.8); }
 

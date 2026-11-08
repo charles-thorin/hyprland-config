@@ -45,7 +45,7 @@ tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px
     color: transparent;
     background-color: transparent;
     background-image: url("icons/mask.svg");
-    background-size: auto 18px;           /* height only: keeps the mask's shape */
+    background-size: 14px 18px;           /* = the SVG's own size, so it stays sharp */
     background-repeat: no-repeat;
     background-position: center;
     opacity: 0.65;
@@ -54,13 +54,13 @@ tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px
 #workspaces button:hover { opacity: 1; background-color: transparent; }
 #workspaces button.active {
     background-image: url("icons/mask-active.svg");
-    background-size: auto 22px;
+    background-size: 17px 22px;
     opacity: 1;
 }
-#workspaces button.active.empty { background-image: url("icons/mask-empty.svg"); }
+#workspaces button.active.empty { background-image: url("icons/mask-empty.svg"); background-size: 17px 22px; }
 #workspaces button.urgent {
     background-image: url("icons/mask-urgent.svg");
-    background-size: auto 22px;
+    background-size: 17px 22px;
     opacity: 1;
 }
 
@@ -84,15 +84,16 @@ window#waybar.dock .modules-right {
     opacity: 0.8;
     transition: all 250ms ease;
 }
+/* Icons are drawn at their exact size (set in each SVG) so they stay sharp;
+   hover only brightens them, since resizing would blur them again. */
 #custom-fleur:hover, #custom-zen:hover, #custom-kitty:hover,
-#custom-krita:hover, #custom-power:hover { opacity: 1; background-size: 27px 27px; }
+#custom-krita:hover, #custom-power:hover { opacity: 1; }
 
 #custom-fleur { background-image: url("icons/fleur.svg"); background-size: 26px 26px; }
 #custom-zen   { background-image: url("icons/zen.svg"); }
 #custom-kitty { background-image: url("icons/kitty.svg"); }
 #custom-krita { background-image: url("icons/krita.svg"); }
 #custom-power { background-image: url("icons/knight.svg"); background-size: 28px 28px; margin-top: 8px; }
-#custom-power:hover { background-size: 31px 31px; }
 
 /* Unfolded part: clock, player, volume, network, battery, tray */
 .vessel-item {
