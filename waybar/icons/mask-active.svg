@@ -1,15 +1,8 @@
 <svg width="17" height="22" xmlns="http://www.w3.org/2000/svg" viewBox="40 -30 432 560">
-  <!-- Focused workspace: glowing with soul — shape adapted from the Architect mask -->
-  <defs>
-  <filter id="glow" x="-50%" y="-50%" width="200%" height="200%">
-    <feGaussianBlur in="SourceAlpha" stdDeviation="22" result="b"/>
-    <feFlood flood-color="#bfe0ff" flood-opacity="0.95"/><feComposite in2="b" operator="in" result="g"/>
-    <feMerge><feMergeNode in="g"/><feMergeNode in="SourceGraphic"/></feMerge>
-  </filter>
-  </defs>
-  <g filter="url(#glow)">
+  <!-- Focused workspace: white mask, soul-blue outline — shape adapted from the Architect mask -->
+  <g>
     <path d="M255.656 18.906c-76 .73-152 78.23-152 230.313c0 116.987 152 244.155 152 244.155s152.007-127.153 152-244.156c.002-155.008-76-231.045-152-230.314z" fill="#ffffff"/>
-    <path d="M255.656 18.906c-76 .73-152 78.23-152 230.313c0 116.987 152 244.155 152 244.155s152.007-127.153 152-244.156c.002-155.008-76-231.045-152-230.314z" fill="none" stroke="#0b0d12" stroke-opacity="0.9" stroke-width="16"/>
+    <path d="M255.656 18.906c-76 .73-152 78.23-152 230.313c0 116.987 152 244.155 152 244.155s152.007-127.153 152-244.156c.002-155.008-76-231.045-152-230.314z" fill="none" stroke="#bfe0ff" stroke-opacity="1" stroke-width="30"/>
     <g fill="#07090e" stroke="#0b0d12" stroke-opacity="0.9" stroke-width="10"><ellipse cx="200" cy="272" rx="44" ry="82" transform="rotate(-8 200 272)"/><ellipse cx="312" cy="272" rx="44" ry="82" transform="rotate(8 312 272)"/></g>
   </g>
 </svg>
