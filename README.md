@@ -37,14 +37,19 @@ something needs you.
 **1. Packages** (names from Arch; other distros use similar ones)
 
 ```bash
-sudo pacman -S hyprland hyprlock hypridle waybar mako fuzzel kitty wlogout grim slurp wl-clipboard brightnessctl playerctl jq libnotify ttf-nerd-fonts-symbols
+sudo pacman -S hyprland hyprlock hypridle waybar mako fuzzel kitty grim slurp wl-clipboard brightnessctl playerctl jq libnotify ttf-nerd-fonts-symbols
 ```
 
 ```bash
-yay -S zen-browser-bin awww krita waypaper
+yay -S zen-browser-bin awww krita waypaper wlogout
 ```
 
 If you use swww instead of awww, the wallpaper script handles that too.
+
+`hyprlock` and `hypridle` are required: in Hyprland, locking (the power menu's
+"Rest", `Super + Alt + L`, and the 10-minute idle lock) goes through them. If
+you also use GNOME, its own lock screen only works inside the GNOME session,
+and nothing here changes it.
 
 **2. Fonts.** Install them however you like:
 - **Cinzel**: titles, clock, power menu (close to the game's Trajan lettering)
