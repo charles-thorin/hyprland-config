@@ -1,0 +1,23 @@
+# Notifications: pale cards in the dark
+font=EB Garamond 13
+background-color=#0b0d12e6
+text-color=#dfe4ec
+border-color=#e8ecf266
+progress-color=over #bfe0ff44
+border-size=1
+border-radius=14
+padding=14,18
+margin=14
+width=360
+anchor=top-right
+default-timeout=6000
+max-icon-size=48
+format=<b>%s</b>\n%b
+
+[urgency=high]
+border-color=#f08a24
+default-timeout=0
+
+# Used by focus mode (Super + Z)
+[mode=do-not-disturb]
+invisible=1

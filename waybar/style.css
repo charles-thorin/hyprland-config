@@ -1,0 +1,110 @@
+/* ── Hallownest palette ─────────────────────────── */
+@define-color void      rgba(11, 13, 18, 0.92);
+@define-color pale      #e8ecf2;
+@define-color dim       #c9d0db;
+@define-color faint     rgba(232, 236, 242, 0.30);
+@define-color soul      #bfe0ff;
+@define-color infection #f08a24;
+
+* {
+    font-family: "Cinzel", "Symbols Nerd Font", serif;
+    font-size: 13px;
+    border: none;
+    border-radius: 0;
+    min-height: 0;
+    box-shadow: none;
+}
+
+window#waybar { background-color: transparent; color: @pale; }
+
+tooltip {
+    background-color: @void;
+    border: 1px solid @faint;
+    border-radius: 12px;
+}
+tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px; }
+
+/* ── Crest: workspace tab, top-left ─────────────── */
+#workspaces {
+    background-color: @void;
+    border-right: 1px solid @faint;
+    border-bottom: 1px solid @faint;
+    border-radius: 0 0 16px 0;
+    padding: 0 12px 0 8px;
+}
+
+/* Each workspace is a mask. Put your icons in waybar/icons/:
+   mask.svg         workspace with windows
+   mask-active.svg  the workspace you're on
+   mask-empty.svg   the workspace you're on, but empty
+   mask-urgent.svg  something wants your attention        */
+#workspaces button {
+    min-width: 24px;
+    padding: 0 2px;
+    margin: 3px 1px 4px 1px;
+    color: transparent;
+    background-color: transparent;
+    background-image: url("icons/mask.svg");
+    background-size: 16px 16px;
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.65;
+    transition: all 250ms ease;
+}
+#workspaces button:hover { opacity: 1; background-color: transparent; }
+#workspaces button.active {
+    background-image: url("icons/mask-active.svg");
+    background-size: 20px 20px;
+    opacity: 1;
+}
+#workspaces button.active.empty { background-image: url("icons/mask-empty.svg"); }
+#workspaces button.urgent {
+    background-image: url("icons/mask-urgent.svg");
+    background-size: 20px 20px;
+    opacity: 1;
+}
+
+/* ── Dock: bottom-right column ──────────────────── */
+window#waybar.dock .modules-right {
+    background-color: @void;
+    border-left: 1px solid @faint;
+    border-top: 1px solid @faint;
+    border-radius: 16px 0 0 0;
+    padding: 8px 0 6px 0;
+}
+
+/* Icon modules: your art goes in waybar/icons/ */
+#custom-fleur, #custom-zen, #custom-kitty, #custom-krita, #custom-power {
+    min-height: 34px;
+    margin: 2px 6px;
+    color: transparent;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 24px 24px;
+    opacity: 0.8;
+    transition: all 250ms ease;
+}
+#custom-fleur:hover, #custom-zen:hover, #custom-kitty:hover,
+#custom-krita:hover, #custom-power:hover { opacity: 1; background-size: 27px 27px; }
+
+#custom-fleur { background-image: url("icons/fleur.svg"); min-height: 28px; }
+#custom-zen   { background-image: url("icons/zen.svg"); }
+#custom-kitty { background-image: url("icons/kitty.svg"); }
+#custom-krita { background-image: url("icons/krita.svg"); }
+#custom-power { background-image: url("icons/knight.svg"); background-size: 28px 28px; margin-top: 8px; }
+
+/* Unfolded part: clock, player, volume, network, battery, tray */
+.vessel-item {
+    color: @dim;
+    padding: 6px 0;
+    margin: 0 6px;
+    border-bottom: 1px solid rgba(232, 236, 242, 0.08);
+}
+#clock { font-size: 14px; color: @pale; font-weight: bold; }
+#mpris, #pulseaudio, #network, #battery { font-family: "Symbols Nerd Font"; font-size: 16px; }
+#mpris.playing { color: @soul; }
+#pulseaudio.muted, #network.disconnected { color: rgba(201, 208, 219, 0.4); }
+#battery.charging { color: @soul; }
+#battery.warning:not(.charging) { color: @infection; }
+#battery.critical:not(.charging) { color: @infection; font-weight: bold; }
+#tray { padding: 8px 0; }
