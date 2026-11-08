@@ -6,3 +6,5 @@ All five are in place, in the theme's pale white with the same thin line
 
 Lock, shutdown (power) and suspend were filled shapes, so they were redrawn as
 single lines along the same outlines.
+
+Each icon also has an `@2x` copy at double size, used on scaled screens.

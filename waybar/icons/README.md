@@ -26,3 +26,8 @@ match on the dark bar:
 
 Sizes are set in `style.css`: masks are 18px tall (22px when active), and
 dock icons are 24px.
+
+Each icon also has an `@2x` copy, declared at double size. GTK uses it on
+scaled screens (monitor scale above 1) so the icons stay sharp. If you replace
+an icon, replace its `@2x` copy too, with the same drawing and doubled
+`width`/`height` values.

@@ -44,7 +44,7 @@ tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px
     margin: 3px 1px 4px 1px;
     color: transparent;
     background-color: transparent;
-    background-image: url("icons/mask.svg");
+    background-image: -gtk-scaled(url("icons/mask.svg"), url("icons/mask@2x.svg"));
     background-size: 14px 18px;           /* = the SVG's own size, so it stays sharp */
     background-repeat: no-repeat;
     background-position: center;
@@ -53,13 +53,13 @@ tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px
 }
 #workspaces button:hover { opacity: 1; background-color: transparent; }
 #workspaces button.active {
-    background-image: url("icons/mask-active.svg");
+    background-image: -gtk-scaled(url("icons/mask-active.svg"), url("icons/mask-active@2x.svg"));
     background-size: 17px 22px;
     opacity: 1;
 }
-#workspaces button.active.empty { background-image: url("icons/mask-empty.svg"); background-size: 17px 22px; }
+#workspaces button.active.empty { background-image: -gtk-scaled(url("icons/mask-empty.svg"), url("icons/mask-empty@2x.svg")); background-size: 17px 22px; }
 #workspaces button.urgent {
-    background-image: url("icons/mask-urgent.svg");
+    background-image: -gtk-scaled(url("icons/mask-urgent.svg"), url("icons/mask-urgent@2x.svg"));
     background-size: 17px 22px;
     opacity: 1;
 }
@@ -89,11 +89,11 @@ window#waybar.dock .modules-right {
 #custom-fleur:hover, #custom-zen:hover, #custom-kitty:hover,
 #custom-krita:hover, #custom-power:hover { opacity: 1; }
 
-#custom-fleur { background-image: url("icons/fleur.svg"); background-size: 26px 26px; }
-#custom-zen   { background-image: url("icons/zen.svg"); }
-#custom-kitty { background-image: url("icons/kitty.svg"); }
-#custom-krita { background-image: url("icons/krita.svg"); }
-#custom-power { background-image: url("icons/knight.svg"); background-size: 28px 28px; margin-top: 8px; }
+#custom-fleur { background-image: -gtk-scaled(url("icons/fleur.svg"), url("icons/fleur@2x.svg")); background-size: 26px 26px; }
+#custom-zen   { background-image: -gtk-scaled(url("icons/zen.svg"), url("icons/zen@2x.svg")); }
+#custom-kitty { background-image: -gtk-scaled(url("icons/kitty.svg"), url("icons/kitty@2x.svg")); }
+#custom-krita { background-image: -gtk-scaled(url("icons/krita.svg"), url("icons/krita@2x.svg")); }
+#custom-power { background-image: -gtk-scaled(url("icons/knight.svg"), url("icons/knight@2x.svg")); background-size: 28px 28px; margin-top: 8px; }
 
 /* Unfolded part: clock, player, volume, network, battery, tray */
 .vessel-item {
