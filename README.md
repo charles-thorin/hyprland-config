@@ -29,6 +29,7 @@ something needs you.
 | `wlogout/` | Power menu                                                    |
 | `mako/`    | Notifications                                                 |
 | `fuzzel/`  | App launcher and the keybind list                             |
+| `waypaper/`| Wallpaper picker settings (copied once by `install.sh`)       |
 | `kitty/`   | Terminal colors                                               |
 
 ## Install
@@ -40,7 +41,7 @@ sudo pacman -S hyprland hyprlock hypridle waybar mako fuzzel kitty wlogout grim 
 ```
 
 ```bash
-yay -S zen-browser-bin awww krita
+yay -S zen-browser-bin awww krita waypaper
 ```
 
 If you use swww instead of awww, the wallpaper script handles that too.
@@ -62,8 +63,10 @@ folder has a README that lists the file names the theme expects.
 It backs up anything already in `~/.config` before linking. It adds the kitty
 theme to your existing `kitty.conf` without replacing it.
 
-**5. Wallpapers.** Put them in `~/Pictures/wallpapers/hollow-knight`. A random
-one is picked at login, and `Super + W` switches to another.
+**5. Wallpapers.** Put them in `~/Pictures/Wallpapers` (subfolders work too).
+`Super + T` opens a picker with thumbnails: click one to set it, and press
+`Super + T` again to close the picker. `Super + W` picks one at random. The
+wallpaper you chose comes back at the next login.
 
 ## Keybinds
 
@@ -89,7 +92,8 @@ The keyboard is set to **AZERTY** (`fr`).
 | `Super + Shift + number row` | Send window to workspace 1–10        |
 | `Super + Tab`            | Previous workspace                       |
 | `Super + S`              | Scratchpad (`Shift` sends a window there)|
-| `Super + W`              | Next wallpaper                           |
+| `Super + T`              | Wallpaper picker (press again to close)  |
+| `Super + W`              | Random wallpaper                         |
 | `Super + Escape`         | Power menu                               |
 | `Super + Alt + L`        | Lock                                     |
 | `Print` / `Shift+Print`  | Screenshot region / screen → clipboard   |

@@ -4,7 +4,7 @@ return function(p)
         hl.exec_cmd("waybar")
         hl.exec_cmd("mako")
         hl.exec_cmd("hypridle")
-        hl.exec_cmd(p.scripts .. "/wallpaper.sh")
+        hl.exec_cmd(p.scripts .. "/wallpaper.sh restore")
         -- Optional: password prompts for GUI apps
         -- hl.exec_cmd("systemctl --user start hyprpolkitagent")
     end)

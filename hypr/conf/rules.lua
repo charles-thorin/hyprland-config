@@ -12,6 +12,15 @@ hl.window_rule({
     pin   = true,
 })
 
+-- Wallpaper picker (Super + T): a floating window in the middle of the screen
+hl.window_rule({
+    name   = "wallpaper-picker",
+    match  = { class = "^(waypaper)$" },
+    float  = true,
+    size   = "1100 700",
+    center = true,
+})
+
 -- Blur behind the bar, notifications, launcher and power menu
 hl.layer_rule({
     name  = "blur-ui",

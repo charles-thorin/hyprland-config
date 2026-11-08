@@ -29,7 +29,17 @@ grep -qx 'include hollow-knight.conf' "$CONF/kitty/kitty.conf" \
     || echo 'include hollow-knight.conf' >> "$CONF/kitty/kitty.conf"
 echo "  → kitty theme included"
 
-mkdir -p "$HOME/Pictures/wallpapers/hollow-knight"
+mkdir -p "$HOME/Pictures/Wallpapers"
+
+# waypaper: copy (not link), because it saves your chosen wallpaper in this file
+if [[ ! -f "$CONF/waypaper/config.ini" ]]; then
+    mkdir -p "$CONF/waypaper"
+    backend=swww; command -v awww >/dev/null && backend=awww
+    sed "s/@BACKEND@/$backend/" "$REPO/waypaper/config.ini" > "$CONF/waypaper/config.ini"
+    echo "  → waypaper config created (backend: $backend)"
+else
+    echo "  ✓ waypaper config already exists, left as is"
+fi
 
 # Warn about missing icons
 missing=0
@@ -42,5 +52,5 @@ done
 (( missing )) && echo "    (see the README in each icons folder)"
 
 echo
-echo "Done. Put wallpapers in ~/Pictures/wallpapers/hollow-knight,"
+echo "Done. Put wallpapers in ~/Pictures/Wallpapers,"
 echo "then log into Hyprland 0.57+ (or run: hyprctl reload && pkill waybar; waybar &)."
