@@ -43,7 +43,7 @@ fi
 
 # Warn about missing icons
 missing=0
-for i in mask.svg mask-active.svg mask-empty.svg mask-urgent.svg fleur.svg zen.svg kitty.svg krita.svg knight.svg; do
+for i in mask.svg mask-active.svg mask-empty.svg mask-urgent.svg knight.svg; do
     [[ -f "$REPO/waybar/icons/$i" ]] || { echo "  ! missing waybar/icons/$i"; missing=1; }
 done
 for i in lock logout suspend reboot shutdown; do

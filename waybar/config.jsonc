@@ -1,125 +1,57 @@
-// Two bars from one file:
-//   "crest" — top-left tab with mask workspaces (grows with your workspaces)
-//   "dock"  — bottom-right column: fleur (unfolds the full bar), apps, power
-[
-  {
-    "name": "crest",
-    "layer": "top",
-    "position": "top",
-    "height": 32,
-    "exclusive": true,
-    "modules-left": ["hyprland/workspaces"],
+// One bar along the bottom of the screen:
+//   [Knight: power menu]  ·  [mask workspaces]  ·····  date  ·····  [open apps]
+{
+  "layer": "top",
+  "position": "bottom",
+  "height": 42,
+  "spacing": 0,
+  "reload_style_on_change": true,   // edits to style.css apply instantly
 
-    "hyprland/workspaces": {
-      // Only existing workspaces are shown, so the tab adapts its length.
-      // The look comes from your mask icons (see style.css).
-      "format": "{icon}",
-      "format-icons": { "default": " " },
-      "sort-by-number": true,
-      "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
-      "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
-    }
+  "modules-left":   ["custom/power", "hyprland/workspaces"],
+  "modules-center": ["clock"],
+  "modules-right":  ["wlr/taskbar"],
+
+  "custom/power": {
+    "format": " ",
+    "tooltip-format": "Power menu",
+    "on-click": "wlogout -b 5"
   },
-  {
-    "name": "dock",
-    "layer": "top",
-    "position": "right",
-    "width": 48,
-    "exclusive": true,
-    "modules-right": [
-      "group/vessel",
-      "custom/zen",
-      "custom/kitty",
-      "custom/krita",
-      "custom/power"
-    ],
 
-    // Click the fleur to unfold the "actual" bar above it
-    "group/vessel": {
-      "orientation": "inherit",
-      "drawer": {
-        "transition-duration": 400,
-        "transition-left-to-right": false,
-        "click-to-reveal": true,
-        "children-class": "vessel-item"
-      },
-      "modules": [
-        "custom/fleur",
-        "clock",
-        "mpris",
-        "pulseaudio",
-        "network",
-        "battery",
-        "tray"
-      ]
-    },
+  "hyprland/workspaces": {
+    // Only existing workspaces are shown, so this part grows and shrinks.
+    // The masks come from icons/ (see style.css).
+    "format": "{icon}",
+    "format-icons": { "default": " " },
+    "sort-by-number": true,
+    "on-scroll-up": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e-1\" })'",
+    "on-scroll-down": "hyprctl dispatch 'hl.dsp.focus({ workspace = \"e+1\" })'"
+  },
 
-    "custom/fleur": {
-      "format": " ",
-      "tooltip-format": "Unfold"
-    },
-
-    "clock": {
-      "format": "{:%H\n%M}",
-      "format-alt": "{:%d\n%b}",
-      "tooltip-format": "<tt>{calendar}</tt>",
-      "calendar": {
-        "mode": "month",
-        "on-scroll": 1,
-        "format": {
-          "months":   "<span color='#e8ecf2'><b>{}</b></span>",
-          "weekdays": "<span color='#8a93a3'>{}</span>",
-          "days":     "<span color='#c9d0db'>{}</span>",
-          "today":    "<span color='#bfe0ff'><b><u>{}</u></b></span>"
-        }
-      },
-      "actions": {
-        "on-scroll-up": "shift_up",
-        "on-scroll-down": "shift_down"
+  "clock": {
+    "format": "{:%A %d %B  ·  %H:%M}",
+    "tooltip-format": "<tt>{calendar}</tt>",
+    "calendar": {
+      "mode": "month",
+      "on-scroll": 1,
+      "format": {
+        "months":   "<span color='#e8ecf2'><b>{}</b></span>",
+        "weekdays": "<span color='#8a93a3'>{}</span>",
+        "days":     "<span color='#c9d0db'>{}</span>",
+        "today":    "<span color='#bfe0ff'><b><u>{}</u></b></span>"
       }
     },
+    "actions": {
+      "on-scroll-up": "shift_up",
+      "on-scroll-down": "shift_down"
+    }
+  },
 
-    "mpris": {
-      "format": "{status_icon}",
-      "status-icons": { "playing": "󰏤", "paused": "󰐊", "stopped": "󰓛" },
-      "tooltip-format": "{artist} — {title}",
-      "on-click": "playerctl play-pause",
-      "on-scroll-up": "playerctl next",
-      "on-scroll-down": "playerctl previous"
-    },
-
-    "pulseaudio": {
-      "format": "{icon}",
-      "format-muted": "󰖁",
-      "format-icons": { "default": ["󰕿", "󰖀", "󰕾"] },
-      "tooltip-format": "Volume {volume}%",
-      "on-click": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
-      "on-click-right": "pavucontrol",
-      "scroll-step": 5
-    },
-
-    "network": {
-      "format-wifi": "󰖩",
-      "format-ethernet": "󰈀",
-      "format-disconnected": "󰖪",
-      "tooltip-format-wifi": "{essid} · {signalStrength}%",
-      "tooltip-format-ethernet": "{ifname} · {ipaddr}",
-      "tooltip-format-disconnected": "Disconnected"
-    },
-
-    "battery": {
-      "format": "{icon}",
-      "format-charging": "󰂄",
-      "format-icons": ["󰁺", "󰁼", "󰁾", "󰂀", "󰁹"],
-      "tooltip-format": "{capacity}% · {timeTo}",
-      "states": { "warning": 25, "critical": 10 }
-    },
-
-    "tray": { "icon-size": 16, "spacing": 8 },
-
-    "custom/zen":   { "format": " ", "tooltip-format": "Zen Browser", "on-click": "zen-browser" },
-    "custom/kitty": { "format": " ", "tooltip-format": "Kitty",       "on-click": "kitty" },
-    "custom/krita": { "format": " ", "tooltip-format": "Krita",       "on-click": "krita" },
-    "custom/power": { "format": " ", "tooltip-format": "Power",       "on-click": "wlogout -b 5" }
+  // Open windows, with their app icons. Click to focus, middle-click to close.
+  "wlr/taskbar": {
+    "format": "{icon}",
+    "icon-size": 26,
+    "tooltip-format": "{title}",
+    "on-click": "activate",
+    "on-click-middle": "close"
   }
-]
+}

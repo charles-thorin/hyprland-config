@@ -5,19 +5,16 @@ white on near-black, masks for workspaces, and infection orange only when
 something needs you.
 
 ```
-┌─────────────┐
-│ ◆ ◆ ◇ ◆     │  ← workspaces as masks (the tab grows/shrinks with them)
-└─────────────┘
-
-
-
-                                                             ╭──╮
-                                                             │✦ │ ← fleur: click to unfold
-                                                             │◎ │   clock · calendar · player ·
-                                                             │🐱│   volume · network · battery
-                                                             │✎ │
-                                                             │♞ │ ← power menu
-                                                             ╰──┘
+┌──────────────────────────────────────────────────────────────────────────┐
+│                                                                          │
+│                              your windows                                │
+│                                                                          │
+├──────────────────────────────────────────────────────────────────────────┤
+│ ♞   ◆ ◆ ◇ ◆            Sunday 08 November · 14:32            🌐 🐱 🎨   │
+└──────────────────────────────────────────────────────────────────────────┘
+  ↑   ↑                          ↑                                  ↑
+power  workspaces as masks       date (hover: calendar)       open apps
+menu   (grows with workspaces)                         (click: focus, middle: close)
 ```
 
 ## What's inside
@@ -25,7 +22,7 @@ something needs you.
 | Folder     | What it is                                                    |
 |------------|---------------------------------------------------------------|
 | `hypr/`    | Hyprland: `hyprland.lua`, split into small commented files in `conf/`, plus lock screen (hyprlock) and idle (hypridle) |
-| `waybar/`  | The workspace tab and the dock                                |
+| `waybar/`  | The bar: power menu, workspaces, date, open apps              |
 | `wlogout/` | Power menu                                                    |
 | `mako/`    | Notifications                                                 |
 | `fuzzel/`  | App launcher and the keybind list                             |
@@ -116,8 +113,9 @@ turns off after 15.
 
 ## Customizing
 
-- **Different apps:** edit `hypr/conf/programs.lua`. The dock commands are
-  at the bottom of `waybar/config.jsonc`.
+- **Different apps:** edit `hypr/conf/programs.lua`.
+- **Bar:** `waybar/config.jsonc` (modules) and `waybar/style.css` (looks).
+  Changes to `style.css` apply as soon as you save.
 - **Keyboard:** `kb_layout` / `kb_variant` in `hypr/conf/input.lua`.
 - **Colors:** the palette is listed at the top of `hypr/conf/looks.lua` and
   `waybar/style.css`.
