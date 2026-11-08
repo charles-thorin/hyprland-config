@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32"><!-- redrawn as lines from lock-svgrepo-com -->
+<g fill="none" stroke="#e8ecf2" stroke-width="0.667" stroke-linecap="round" stroke-linejoin="round">
+<rect x="4" y="13" width="24" height="18" rx="3"/>
+<path d="M9 13 V8.2 C9 4.2 12 1 16 1 S23 4.2 23 8.2 V13"/>
+<circle cx="16" cy="20" r="1.5"/><path d="M16 21.5 V25"/></g></svg>
