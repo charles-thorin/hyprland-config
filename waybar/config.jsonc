@@ -16,7 +16,7 @@
   "custom/power": {
     "format": " ",
     "tooltip-format": "Power menu",
-    "on-click": "~/.config/hypr/scripts/power-menu.sh"
+    "on-click": "wlogout -b 5"
   },
 
   "hyprland/workspaces": {
