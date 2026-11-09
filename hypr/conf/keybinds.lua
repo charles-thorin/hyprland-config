@@ -37,7 +37,7 @@ return function(p)
     bind(mod .. " + H",       "Show all keybinds", exec(p.scripts .. "/keybinds.sh"))
     bind(mod .. " + T",       "Pick a wallpaper",  exec(p.scripts .. "/wallpaper-picker.sh"))
     bind(mod .. " + W",       "Random wallpaper",  exec(p.scripts .. "/wallpaper.sh random"))
-    bind(mod .. " + Escape",  "Power menu",        exec("wlogout -b 5"))
+    bind(mod .. " + Escape",  "Power menu",        exec(p.scripts .. "/power-menu.sh"))
     bind(mod .. " + ALT + L", "Lock screen",       exec("loginctl lock-session"))
 
     -- Windows
