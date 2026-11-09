@@ -90,7 +90,7 @@ tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px
 }
 
 /* ── Right: open apps ───────────────────────────── */
-#taskbar { margin-right: 12px; }
+#taskbar { margin-right: 4px; }
 #taskbar button {
     padding: 0 6px;
     margin: 4px 2px;
@@ -106,3 +106,15 @@ tooltip label { color: @pale; font-family: "EB Garamond", serif; font-size: 14px
     background-color: rgba(191, 224, 255, 0.08);
 }
 #taskbar button.urgent { border-bottom-color: @infection; }
+
+/* ── Bluetooth (far right) ──────────────────────── */
+#bluetooth {
+    font-family: "Symbols Nerd Font", "Cinzel", serif;
+    font-size: 17px;
+    color: @dim;
+    padding: 0 14px 0 8px;
+    margin-right: 6px;
+}
+#bluetooth:hover { color: @pale; }
+#bluetooth.connected { color: @soul; }
+#bluetooth.off, #bluetooth.disabled { color: rgba(201, 208, 219, 0.4); }

@@ -10,11 +10,12 @@ something needs you.
 │                              your windows                                │
 │                                                                          │
 ├──────────────────────────────────────────────────────────────────────────┤
-│ ♞   ◆ ◆ ◇ ◆            Sunday 08 November · 14:32            🌐 🐱 🎨   │
+│ ♞   ◆ ◆ ◇ ◆            Sunday 08 November · 14:32         🌐 🐱 🎨  ᛒ  │
 └──────────────────────────────────────────────────────────────────────────┘
   ↑   ↑                          ↑                                  ↑
 power  workspaces as masks       date (hover: calendar)       open apps
 menu   (grows with workspaces)                         (click: focus, middle: close)
+                                                                    ᛒ = Bluetooth (click: devices)
 ```
 
 ## What's inside
@@ -34,7 +35,7 @@ menu   (grows with workspaces)                         (click: focus, middle: cl
 **1. Packages** (names from Arch; other distros use similar ones)
 
 ```bash
-sudo pacman -S hyprland hyprlock hypridle waybar mako fuzzel kitty grim slurp wl-clipboard brightnessctl playerctl jq libnotify ttf-nerd-fonts-symbols
+sudo pacman -S hyprland hyprlock hypridle waybar mako fuzzel kitty bluez bluez-utils grim slurp wl-clipboard brightnessctl playerctl jq libnotify ttf-nerd-fonts-symbols
 ```
 
 ```bash
@@ -104,6 +105,17 @@ The keyboard is set to **AZERTY** (`fr`).
 | `Super + Escape`         | Power menu                               |
 | `Super + Alt + L`        | Lock                                     |
 | `Print` / `Shift+Print`  | Screenshot region / screen → clipboard   |
+
+## Bluetooth
+
+Click the Bluetooth icon at the right end of the bar. A list shows your
+paired devices, with connected ones first (●). Pick one to connect it, or to
+disconnect it if it's connected. The list also has **Open Bluetooth
+settings…**, for pairing a new device, and an entry to turn Bluetooth on or
+off. Right-clicking the icon opens the settings directly. The settings window
+is GNOME Settings, or Blueman if you install it.
+
+Bluetooth needs its service running: `sudo systemctl enable --now bluetooth`.
 
 ## Focus mode
 
