@@ -35,7 +35,7 @@ menu   (grows with workspaces)                         (click: focus, middle: cl
 **1. Packages** (names from Arch; other distros use similar ones)
 
 ```bash
-sudo pacman -S hyprland hyprlock hypridle waybar mako fuzzel kitty bluez bluez-utils grim slurp wl-clipboard brightnessctl playerctl jq libnotify ttf-nerd-fonts-symbols
+sudo pacman -S hyprland hyprlock hypridle waybar mako fuzzel kitty bluez bluez-utils blueman grim slurp wl-clipboard brightnessctl playerctl jq libnotify ttf-nerd-fonts-symbols
 ```
 
 ```bash
@@ -113,7 +113,8 @@ paired devices, with connected ones first (●). Pick one to connect it, or to
 disconnect it if it's connected. The list also has **Open Bluetooth
 settings…**, for pairing a new device, and an entry to turn Bluetooth on or
 off. Right-clicking the icon opens the settings directly. The settings window
-is GNOME Settings, or Blueman if you install it.
+is Blueman (GNOME Settings shows nothing outside GNOME). If Blueman isn't
+installed, a terminal with `bluetoothctl` opens instead.
 
 Bluetooth needs its service running: `sudo systemctl enable --now bluetooth`.
 

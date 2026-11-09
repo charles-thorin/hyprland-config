@@ -8,14 +8,17 @@ pkill -f 'fuzzel.*Bluetooth' && exit 0
 
 SETTINGS="Open Bluetooth settings…"
 
+# Blueman if installed (GNOME Settings shows nothing outside GNOME),
+# otherwise bluetoothctl in a terminal.
 open_settings() {
     if command -v blueman-manager >/dev/null; then
         setsid -f blueman-manager >/dev/null 2>&1
     else
-        # GNOME Settings only shows its panels when it thinks it's in GNOME
-        XDG_CURRENT_DESKTOP=GNOME setsid -f gnome-control-center bluetooth >/dev/null 2>&1
+        setsid -f kitty --title "Bluetooth" bluetoothctl >/dev/null 2>&1
     fi
 }
+
+[[ "$1" == "--settings" ]] && { open_settings; exit 0; }
 
 if ! bluetoothctl show 2>/dev/null | grep -q "Powered: yes"; then
     choice=$(printf '%s\n' "Turn Bluetooth on" "$SETTINGS" \
