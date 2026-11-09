@@ -2,7 +2,7 @@
 -- Change these and every keybind follows.
 return {
     terminal = "kitty",
-    browser  = "zen-browser",        -- Flatpak: "flatpak run app.zen_browser.zen"
+    browser  = "flatpak run app.zen_browser.zen",   -- Zen from GNOME Software (Flatpak)
     paint    = "krita",
     launcher = "fuzzel",
     files    = "kitty -e yazi",      -- or "thunar", "nautilus", "dolphin"…

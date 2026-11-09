@@ -38,10 +38,14 @@ sudo pacman -S hyprland hyprlock hypridle waybar mako fuzzel kitty grim slurp wl
 ```
 
 ```bash
-yay -S zen-browser-bin awww krita waypaper wlogout
+yay -S awww krita waypaper wlogout
 ```
 
 If you use swww instead of awww, the wallpaper script handles that too.
+
+Zen is set up as the Flatpak version, installed from GNOME Software or with
+`flatpak install flathub app.zen_browser.zen`. If you install it some other
+way, change `browser` in `hypr/conf/programs.lua`.
 
 `hyprlock` and `hypridle` are required: in Hyprland, locking (the power menu's
 "Rest", `Super + Alt + L`, and the 10-minute idle lock) goes through them. If

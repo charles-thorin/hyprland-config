@@ -8,7 +8,13 @@ DIR="${HK_WALLPAPERS:-$HOME/Pictures/Wallpapers}"
 CMD=$(command -v awww || command -v swww) || { notify-send "Wallpaper" "Install awww or swww"; exit 1; }
 CMD=$(basename "$CMD")
 
-pgrep -x "$CMD-daemon" >/dev/null || { setsid -f "$CMD-daemon" >/dev/null 2>&1; sleep 0.5; }
+pgrep -x "$CMD-daemon" >/dev/null || setsid -f "$CMD-daemon" >/dev/null 2>&1
+
+# Wait until the daemon really answers (it can take a few seconds at login)
+for _ in $(seq 100); do
+    "$CMD" query >/dev/null 2>&1 && break
+    sleep 0.1
+done
 
 random_wallpaper() {
     FILE=$(find "$DIR" -type f \( -iname '*.jpg' -o -iname '*.jpeg' -o -iname '*.png' -o -iname '*.webp' -o -iname '*.gif' \) 2>/dev/null | shuf -n1)
