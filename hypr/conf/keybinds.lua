@@ -76,10 +76,12 @@ return function(p)
     hl.bind(mod .. " + mouse:272", hl.dsp.window.drag(),   { mouse = true })
     hl.bind(mod .. " + mouse:273", hl.dsp.window.resize(), { mouse = true })
 
-    -- Screenshots → clipboard. On most laptops Fn + Ins sends Print
-    -- (Fn itself never reaches Hyprland, the keyboard handles it).
-    bind("Print",         "Screenshot a region (Fn+Ins)",        exec(p.scripts .. "/screenshot.sh region"))
-    bind("SHIFT + Print", "Screenshot the screen (Shift+Fn+Ins)", exec(p.scripts .. "/screenshot.sh screen"))
+    -- Screenshots → clipboard. On this laptop Fn + Ins sends plain Insert.
+    -- Shift+Insert (paste) and Ctrl+Insert (copy) are left alone for apps.
+    bind("Insert",         "Screenshot a region",   exec(p.scripts .. "/screenshot.sh region"))
+    bind(mod .. " + Insert", "Screenshot the screen", exec(p.scripts .. "/screenshot.sh screen"))
+    bind("Print",          "Screenshot a region",   exec(p.scripts .. "/screenshot.sh region"))
+    bind("SHIFT + Print",  "Screenshot the screen", exec(p.scripts .. "/screenshot.sh screen"))
 
     -- Media & hardware keys (work on the lock screen too)
     bind("XF86AudioRaiseVolume",  "Volume up",       exec("wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+"), { locked = true, repeating = true })

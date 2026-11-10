@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Screenshot → clipboard (Fn + Ins on most laptops, i.e. the Print key).
+# Screenshot → clipboard (Insert / Fn + Ins, or Print).
 #   screenshot.sh region   select an area with the mouse (Esc cancels)
 #   screenshot.sh screen   the whole screen
 case "${1:-region}" in
