@@ -36,9 +36,9 @@ hl.layer_rule({
     ignore_alpha = 0.1,
 })
 
--- Blur behind the bar, notifications, launcher and power menu
+-- Blur behind the bar, launcher and power menu (not notifications)
 hl.layer_rule({
     name  = "blur-ui",
-    match = { namespace = "^(waybar|notifications|launcher|logout_dialog)$" },
+    match = { namespace = "^(waybar|launcher|logout_dialog)$" },
     blur  = true,
 })

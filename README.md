@@ -104,7 +104,7 @@ The keyboard is set to **AZERTY** (`fr`).
 | `Super + W`              | Random wallpaper                         |
 | `Super + Escape`         | Power menu                               |
 | `Super + Alt + L`        | Lock                                     |
-| `Insert` / `Super + Insert` | Screenshot region / screen → clipboard (`Print` works too) |
+| `Insert` / `Super + Insert` | Screenshot region / screen → clipboard + `~/Pictures/Screenshots` (`Print` works too) |
 
 ## Bluetooth
 
